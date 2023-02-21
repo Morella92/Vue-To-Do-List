@@ -61,7 +61,7 @@ createApp({
 
                 text: this.newValue,
                 done: false
-                
+
             }),
 
             this.newValue = ''
