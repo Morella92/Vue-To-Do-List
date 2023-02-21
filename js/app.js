@@ -3,12 +3,6 @@
 // text, una stringa che indica il testo del todo
 // done, un booleano (true/false) che indica se il todo è stato fatto oppure no
 
-
-// MILESTONE 3
-// Predisporre un campo di input testuale e un pulsante “aggiungi”: 
-// cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo,
-// che quindi viene aggiunto alla lista dei todo esistenti.
-
 const { createApp } = Vue
 
 let list = [
@@ -39,7 +33,9 @@ createApp({
     data() {
         return {
 
-            listItem: list
+            listItem: list,
+
+            newValue: ''
         }
     },
 
@@ -51,6 +47,24 @@ createApp({
         removeItem: function (itemIndex) {
 
             this.listItem.splice(itemIndex, 1)
+        },
+
+        // MILESTONE 3
+        // Predisporre un campo di input testuale e un pulsante “aggiungi”: 
+        // cliccando sul pulsante, il testo digitato viene letto e 
+        // utilizzato per creare un nuovo todo,
+        // che quindi viene aggiunto alla lista dei todo esistenti.
+
+        addItem: function (){
+
+            this.listItem.push({
+
+                text: this.newValue,
+                done: false
+                
+            }),
+
+            this.newValue = ''
         }
     }
 }).mount('#app')

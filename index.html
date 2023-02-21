@@ -15,24 +15,35 @@
 
 <body>
     <div id="app">
-        <div class="container py-5">
 
+        <div class="container py-5">
             <!-- MILESTONE 1 -->
             <!-- Stampare all’interno di una lista HTML un item per ogni todo.  -->
             <!-- Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato. -->
             <ol v-for="item in listItem" class="list-group list-group">
+
                 <li class="list-group-item" :class="item.done === true ? 'text-decoration-line-through' : '' ">
                     {{ item.text }}
-                    <span @click = "removeItem"><i class="fa-solid fa-xmark"></i></span>
+                    <span @click="removeItem"><i class="fa-solid fa-xmark"></i></span>
                 </li>
-                
+
             </ol>
-
-            
-
-            
         </div>
 
+        <div class="container py-3">
+            <form class="row g-3">
+                <div class="col-auto">
+                    <input type="text" readonly class="form-control-plaintext" 
+                    value="Nuove commissioni:">
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="inputPassword2" placeholder="">
+                </div>
+                <div class="col-auto">
+                    <button @click="addItem" type="submit" class="btn btn-primary mb-3">Aggiungi</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="./js/app.js"></script>
 </body>
