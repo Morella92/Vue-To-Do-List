@@ -57,9 +57,21 @@ createApp({
 
         addItem: function (){
 
+            // trim cancella gli spazi iniziali e finali della stringa
+            //per evitare errori nella lettura e che
+            //l'utente possa inserire solo spazi e niente testo
+            let userText = this.newValue.trim()
+
+            
+            //questo if serve per impedire che l'utente
+            //possa aggiungere task senza nessun testo
+            if(userText === ''){
+                return
+            }
+
             this.listItem.push({
 
-                text: this.newValue,
+                text: userText,
                 done: false
 
             }),
