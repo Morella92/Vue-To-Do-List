@@ -20,11 +20,11 @@
             <!-- MILESTONE 1 -->
             <!-- Stampare all’interno di una lista HTML un item per ogni todo.  -->
             <!-- Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato. -->
-            <ol v-for="item in listItem" class="list-group list-group">
+            <ol v-for="(item, index) in listItem" :key="index" class="list-group list-group">
 
                 <li class="list-group-item" :class="item.done === true ? 'text-decoration-line-through' : '' ">
                     {{ item.text }}
-                    <span @click="removeItem"><i class="fa-solid fa-xmark"></i></span>
+                    <span @click="removeItem(index)"><i class="fa-solid fa-xmark"></i></span>
                 </li>
 
             </ol>
